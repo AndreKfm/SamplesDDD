@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
-using Simple.Domain.Root;
+using Simple.Domain.Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +11,21 @@ namespace Simple.Main.Shared
 {
     public class SharedCallRoot : IHostedService
     {
-        public SharedCallRoot(ISimpleDomainRoot root)
+        public SharedCallRoot(ISimpleDomainMainEntry root)
         {
             _root = root;
         }
 
         Task _runningTask;
-        private readonly ISimpleDomainRoot _root;
+        private readonly ISimpleDomainMainEntry _root;
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            _runningTask = Task.Factory.StartNew(async () => { await _root.Main(cancellationToken); });
+            _runningTask = Task.Factory.StartNew(async () => 
+            { 
+                await Task.Delay(2000, cancellationToken);  
+                await _root.Main(cancellationToken); 
+            });
             await Task.CompletedTask;
         }
 

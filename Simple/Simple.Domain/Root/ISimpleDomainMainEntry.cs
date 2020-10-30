@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Simple.Domain.Root
+namespace Simple.Domain.Main
 {
-    public interface ISimpleDomainRoot
+    public interface ISimpleDomainMainEntry
     {
        public Task Main(CancellationToken cancellationToken);
     }

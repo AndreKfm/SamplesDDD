@@ -1,5 +1,5 @@
-﻿using Simple.Domain.Ports;
-using Simple.Domain.Root;
+﻿using Simple.Domain.Main;
+using Simple.Domain.Ports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Simple.Domain
 {
-    public class SimpleDomainMain : ISimpleDomainRoot
+    public class SimpleDomainMain : ISimpleDomainMainEntry
     {
         private readonly IOutput _output;
 
@@ -18,8 +18,14 @@ namespace Simple.Domain
             _output = output;
         }
 
+        /// <summary>
+        /// Main loop of the Simple.Domain
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task Main(CancellationToken cancellationToken)
         {
+
             int count = 0;
             while (cancellationToken.IsCancellationRequested == false)
             {
