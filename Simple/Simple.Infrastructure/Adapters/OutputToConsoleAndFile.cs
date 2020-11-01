@@ -1,4 +1,5 @@
-﻿using Simple.Domain.Ports;
+﻿using Microsoft.Extensions.Logging;
+using Simple.Domain.Ports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace Simple.Infrastructure.Adapters
 {
     public class OutputToConsole : IOutput
     {
+        private readonly ILogger<OutputToFileSimulated> _logger;
+        public OutputToConsole(ILogger<OutputToFileSimulated> logger)
+        {
+            logger.LogInformation("Output to simulated file");
+            _logger = logger;
+
+        }
         public void Dispose()
         {
             Console.WriteLine("### DISPOSING ###");
@@ -22,6 +30,12 @@ namespace Simple.Infrastructure.Adapters
 
     public class OutputToFileSimulated : IOutput
     {
+        private readonly ILogger<OutputToFileSimulated> _logger;
+        public OutputToFileSimulated(ILogger<OutputToFileSimulated> logger)
+        {
+            logger.LogInformation("Output to simulated file");
+            _logger = logger;
+        }
         public void Dispose()
         {
             Console.WriteLine("### DISPOSING ###");

@@ -18,27 +18,30 @@ namespace Simple
         {
             Console.WriteLine("Hello World!");
             Host.CreateDefaultBuilder(args).
-                ConfigureAppConfiguration((hostContext, config)=>
-                {
-                    //config.SetBasePath(Environment.CurrentDirectory); // Default
-                    //config.AddJsonFile("appsettings.json", optional: false);
-                    //config.AddEnvironmentVariables();
-                }).
                 ConfigureServices((context, services) =>
                 {
-                    var settings = new ServicesSettings();
-                    context.Configuration.GetSection("ServicesSettings").Bind(settings);
-                                      
-                   
-                    if (settings.OutputDestination == OutputDestinations.File)
-                        services.AddSingleton<IOutput, OutputToFileSimulated>(); // This is the port we want to use in our root object
-                    else 
-                        services.AddSingleton<IOutput, OutputToConsole>(); // This is the port we want to use in our root object
+                    AddSingletonForOutput(context, services);
+
                     services.AddSingleton<ISimpleDomainMainEntry, SimpleDomainMain>(); // This is the main entry of the domain
                     services.AddHostedService<SharedCallRoot>(); // This is a generic wrapper for main root
                 }).
                 Build().Run();
+        }
 
+        private static void AddSingletonForOutput(HostBuilderContext context, IServiceCollection services)
+        {
+            // Based on the configuration in appsettings.json we will switch between
+            // output adapter - either file or simulated file output. This won't
+            // change any domain code and implementation - but pure infrastructure changes
+            // by configuration.
+
+            var settings = new ServicesSettings();
+            context.Configuration.GetSection("ServicesSettings").Bind(settings); // We load it manually without injection
+
+            if (settings.OutputDestination == OutputDestinations.File)
+                services.AddSingleton<IOutput, OutputToFileSimulated>(); // This is the port we want to use in our root object
+            else
+                services.AddSingleton<IOutput, OutputToConsole>(); // This is the port we want to use in our root object
         }
     }
 }
