@@ -1,0 +1,20 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+= Samples for DDD design in C# .NET 5.0
+
+
+== Copyright and License
+
+Code and documentation copyright Andre Michael Kaufmann, code and docker image released under MIT license. See LICENSE.TXT
+
+
+
+:leveloffset: +2
+include::./Simple/Readme_Simple.adoc[]
+:leveloffset: -2
