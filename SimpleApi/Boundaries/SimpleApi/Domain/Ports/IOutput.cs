@@ -10,4 +10,13 @@ namespace SimpleApi.Domain.Ports
     {
         public void WriteString(string output);
     }
+
+
+    public interface IOutputService : IDisposable
+    {
+        public IEnumerable<string> AvailableOutputs();
+        public IOutput GetOutput(string whichOutput);
+    }
+
+
 }

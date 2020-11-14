@@ -1,4 +1,6 @@
-﻿using SimpleApi.Domain.Main;
+﻿using Microsoft.Extensions.Logging;
+using SimpleApi.Domain.Commands;
+using SimpleApi.Domain.Main;
 using SimpleApi.Domain.Ports;
 using System;
 using System.Collections.Generic;
@@ -9,9 +11,55 @@ using System.Threading.Tasks;
 
 namespace SimpleApi.Domain
 {
+
+    public class OutputServices : IOutputServices, IOutput
+    {
+        private IOutputService _outputService;
+        private readonly ILogger<OutputServices> _logger;
+        private IOutput _activeOutput; 
+        
+
+        public OutputServices(IOutputService outputService, ILogger<OutputServices> logger)
+        {
+            _outputService  = outputService;
+            _logger = logger;
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("Dispose OutputServices");
+        }
+
+        public void SetActiveOutput(string whichOutput)
+        {
+            lock(this)
+            {
+                _activeOutput = _outputService.GetOutput(whichOutput);
+            }
+
+            _logger.LogInformation($"Output to {whichOutput}");
+
+        }
+
+        public void WriteString(string output)
+        {
+            IOutput currentOutput; 
+            
+            lock(this)
+            {
+                currentOutput = _activeOutput;
+            }
+
+            if (currentOutput == null)
+                return;
+
+            currentOutput.WriteString(output);
+        }
+    }
+
     public class SimpleDomainMain : ISimpleDomainMainEntry
     {
-        private readonly IOutput _output;
+        private IOutput _output;
 
         public SimpleDomainMain(IOutput output)
         {
@@ -30,10 +78,9 @@ namespace SimpleApi.Domain
             while (cancellationToken.IsCancellationRequested == false)
             {
                 _output.WriteString($"Running: {++count}");
-                await Task.Delay(1000);
+                await Task.Delay(500);
             }
         }
-
 
     }
 }

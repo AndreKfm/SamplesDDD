@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Boundaries\SimpleApi\Api\SimpleApi.Api.csproj" />
     <ProjectReference Include="..\Boundaries\SimpleApi\Infrastructure\SimpleApi.Infrastructure.csproj" />
   </ItemGroup>
 

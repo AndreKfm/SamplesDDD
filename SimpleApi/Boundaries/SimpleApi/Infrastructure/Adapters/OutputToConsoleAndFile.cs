@@ -13,7 +13,6 @@ namespace SimpleApi.Infrastructure.Adapters
         private readonly ILogger<OutputToFileSimulated> _logger;
         public OutputToConsole(ILogger<OutputToFileSimulated> logger)
         {
-            logger.LogInformation("Output to simulated file");
             _logger = logger;
 
         }
@@ -33,7 +32,6 @@ namespace SimpleApi.Infrastructure.Adapters
         private readonly ILogger<OutputToFileSimulated> _logger;
         public OutputToFileSimulated(ILogger<OutputToFileSimulated> logger)
         {
-            logger.LogInformation("Output to simulated file");
             _logger = logger;
         }
         public void Dispose()
