@@ -128,11 +128,11 @@ internal class Program
             {
                 webBuilder.UseStartup<Startup>();
             }).Build();
-        Task.Run(async () =>
+        Task.Run(() =>
         {
             host.Services.GetService<IOutputServices>().SetActiveOutput(host.Services.GetService<IOutputService>().AvailableOutputs().First());
-                //await SwitchPermanentlyBetweenAllOutputs(host);
-            });
+            //await SwitchPermanentlyBetweenAllOutputs(host);
+        });
 
 
         host.Run();
