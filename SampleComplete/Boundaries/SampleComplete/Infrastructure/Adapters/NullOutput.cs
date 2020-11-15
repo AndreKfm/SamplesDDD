@@ -15,6 +15,7 @@ namespace SampleComplete.Infrastructure.Adapters
 
         public void WriteString(string output)
         {
+            Console.WriteLine($"# NULL # : {output}");
         }
     }
 }

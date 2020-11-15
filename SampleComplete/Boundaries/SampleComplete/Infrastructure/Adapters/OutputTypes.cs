@@ -11,7 +11,7 @@ namespace SampleComplete.Infrastructure.Adapters
     {
         IEnumerable<(string, Type)> IOutputTypes.ServiceTypes()
         {
-            return new[] { ("ToConsole", typeof(OutputToConsole)), ("ToFileSimulated", typeof(OutputToFileSimulated)) };
+            return new[] { ("Null", typeof(NullOutput)), ("ToConsole", typeof(OutputToConsole)), ("ToFileSimulated", typeof(OutputToFileSimulated)) };
         }
     }
 }
