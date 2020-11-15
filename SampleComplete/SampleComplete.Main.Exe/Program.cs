@@ -48,7 +48,8 @@ internal class Program
             }).Build();
         Task.Run(() =>
         {
-            host.Services.GetService<IChangeOutput>().SetActiveOutput(host.Services.GetService<IOutputService>().AvailableOutputs().First());
+            string which = host?.Services?.GetService<IOutputService>()?.AvailableOutputs()?.First() ?? String.Empty;
+            if(String.IsNullOrEmpty(which) == false) host?.Services?.GetService<IChangeOutput>()?.SetActiveOutput(which);
             //await ExampleControlByCommand.SwitchPermanentlyBetweenAllOutputs(host);
         });
 

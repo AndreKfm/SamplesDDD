@@ -11,6 +11,16 @@ using System.Threading.Tasks;
 
 namespace SampleComplete.Domain
 {
+    public class NullOutput : IOutput
+    {
+        public void Dispose()
+        {
+        }
+
+        public void WriteString(string output)
+        {
+        }
+    }
 
     public class OutputServices : IChangeOutput, IOutput
     {
@@ -21,6 +31,7 @@ namespace SampleComplete.Domain
 
         public OutputServices(IOutputService outputService, ILogger<OutputServices> logger)
         {
+            _activeOutput = new NullOutput();
             _outputService  = outputService;
             _logger = logger;
         }

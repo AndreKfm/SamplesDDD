@@ -1,4 +1,5 @@
 ﻿using SampleComplete.Domain.Events;
+using SampleComplete.Domain.Ports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +8,38 @@ using System.Threading.Tasks;
 
 namespace SampleComplete.Domain.Entities.Base
 {
+    
+
+
     public record Entity
     {
+        static List<Event> EmptyList = new List<Event>();
+
         public EntityId Id { get; }
 
-        public Entity()
+        public Entity(IEventBus eventBus)
         {
-            _eventList = new List<Event>();
+            _eventList = EmptyList;
+            _eventBus = eventBus;
+            Id = new EntityId();
         }
 
         public void RaiseEvent(Event newEvent)
         {
+            if (_eventList == null) 
+                _eventList = new List<Event>();
             _eventList.Add(newEvent);
         }
 
-        List<Event> _eventList { get; }
+        public void Publish()
+        {
+            _eventList.ForEach(_eventBus.Publish);
+
+            if (_eventList.Count > 0) 
+                _eventList.Clear();
+        }
+
+        List<Event> _eventList { get; set; }
+        IEventBus _eventBus;
     }
 }

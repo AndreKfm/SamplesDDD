@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SampleComplete.Domain.Ports
 {
-    interface IEventBus
+    public interface IEventBus
     {
         void Publish(Event newEvent);
     }

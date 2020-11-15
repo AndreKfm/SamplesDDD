@@ -21,7 +21,8 @@ namespace Simple
         public IOutput GetOutput(string whichOutput)
         {
             var output = _types.ServiceTypes().FirstOrDefault(s => s.outputName == whichOutput).outputType;
-            return (IOutput)_provider.GetService(output);
+            IOutput? outputService = _provider.GetService(output) as IOutput;
+            return outputService ?? new NullOutput();
         }
 
         IEnumerable<string> IOutputService.AvailableOutputs()

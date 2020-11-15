@@ -1,5 +1,6 @@
 ﻿using SampleComplete.Domain.Entities.Base;
 using SampleComplete.Domain.Entities.UserValues;
+using SampleComplete.Domain.Ports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace SampleComplete.Domain.Entities
 
         string _userName { get; set; }
 
-        public User(string userName)
+        public User(IEventBus bus, string userName) : base(bus)
         {
             _friends = new FriendList();
             _userName = userName;

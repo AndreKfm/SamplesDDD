@@ -16,7 +16,7 @@ namespace SampleComplete.Main.Shared
             _root = root;
         }
 
-        Task _runningTask;
+        Task _runningTask = Task.CompletedTask;
         private readonly ISimpleDomainMainEntry _root;
 
         public async Task StartAsync(CancellationToken cancellationToken)
