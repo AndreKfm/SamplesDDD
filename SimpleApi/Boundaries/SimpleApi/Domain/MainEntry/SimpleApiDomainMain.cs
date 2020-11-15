@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace SimpleApi.Domain
 {
 
-    public class OutputServices : IOutputServices, IOutput
+    public class OutputServices : IChangeOutput, IOutput
     {
         private IOutputService _outputService;
         private readonly ILogger<OutputServices> _logger;

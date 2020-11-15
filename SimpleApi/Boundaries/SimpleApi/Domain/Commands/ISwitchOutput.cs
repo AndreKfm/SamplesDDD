@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleApi.Domain.Commands
 {
-    public interface IOutputServices
+    public interface IChangeOutput
     {
         void SetActiveOutput(string whichOutput);
     }

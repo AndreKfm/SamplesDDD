@@ -26,7 +26,7 @@ namespace SimpleApi.Api.Controller
 
         [Route("[action]")]
         [HttpPost]
-        public ActionResult SetOutput(string whichOutput, [FromServices] IOutputServices outputServices)
+        public ActionResult SetOutput(string whichOutput, [FromServices] IChangeOutput outputServices)
         {
             outputServices.SetActiveOutput(whichOutput);
             return Ok();
