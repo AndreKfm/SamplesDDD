@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Simple
 {
 
-    class OutputService : IOutputService
+    public class OutputService : IOutputService
     {
         private readonly IServiceProvider _provider;
         private readonly IOutputTypes _types;
