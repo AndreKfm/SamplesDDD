@@ -17,12 +17,15 @@ namespace SimpleApi.Api.Controller
 
         }
 
-        [HttpGet] public IEnumerable<string> Get([FromServices] Domain.Ports.IOutputService outputService)
+        [HttpGet]
+        [Route("[action]")]
+        public IEnumerable<string> GetValidOutputs([FromServices] Domain.Ports.IOutputService outputService)
         {
             return outputService.AvailableOutputs();
         }
 
         [Route("[action]")]
+        [HttpPost]
         public ActionResult SetOutput(string whichOutput, [FromServices] IOutputServices outputServices)
         {
             outputServices.SetActiveOutput(whichOutput);
