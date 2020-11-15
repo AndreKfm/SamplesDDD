@@ -1,0 +1,13 @@
+﻿= Simple DDD Example
+
+Demonstrates a simple scenario. A console application running an endless loop which can be left by setting cancellation token (closing the console window or pressing CTRL-C). A default host service with dependency injection is used to define adapters for output port and the main entry. 
+
+
+Demonstrated Features
+
+- Output adapter, for console and file outputs
+- Dependency injection
+- Separated domain
+- Infrastructure 
+
+
