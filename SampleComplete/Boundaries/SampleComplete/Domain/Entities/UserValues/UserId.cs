@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SampleComplete.Domain.Entities.UserValues
 {
-    internal record UserId
+    public record UserId
     {
         EntityId _id;
 

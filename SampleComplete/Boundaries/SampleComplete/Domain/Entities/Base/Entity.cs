@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace SampleComplete.Domain.Entities.Base
 {
-    
 
+    public interface IAggregateRoot
+    { }
 
-    public record Entity
+    public record Entity : IAggregateRoot
     {
         static List<Event> EmptyList = new List<Event>();
 
