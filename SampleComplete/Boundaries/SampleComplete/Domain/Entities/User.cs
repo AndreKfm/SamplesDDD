@@ -19,6 +19,9 @@ namespace SampleComplete.Domain.Entities
         {
             _friends = new FriendList();
             _userName = userName;
+
+            RaiseEvent(new Events.NewUserCreated(new UserId(Id)));
+            Publish();
         }
 
         void SetNewName(string newName)

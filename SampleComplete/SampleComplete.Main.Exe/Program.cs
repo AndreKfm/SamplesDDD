@@ -39,6 +39,8 @@ internal class Program
                 services.AddSingleton<IOutputService>(s => (IOutputService)s.GetRequiredService<OutputService>());
                 services.AddSingleton<IOutputTypes, OutputTypes>();
 
+                services.AddSingleton<IEventBus, EventBus>();
+
                 services.AddSingleton<ISimpleDomainMainEntry, SimpleDomainMain>(); // This is the main entry of the domain
                 services.AddHostedService<SharedCallRoot>(); // This is a generic wrapper for main root
             })
