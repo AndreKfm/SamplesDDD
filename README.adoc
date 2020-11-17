@@ -12,7 +12,7 @@ endif::[]
 == Copyright and License
 
 Code and documentation written by Andre Michael Kaufmann.
-Free to use for any purposes according to MIT license, besides 
+Free to use for any purpose according to MIT license, besides 
 having to include any copyright notice, where not expressed otherwise,
 like in used packages using different licenses.
 
