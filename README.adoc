@@ -11,8 +11,10 @@ endif::[]
 
 == Copyright and License
 
-Code and documentation copyright Andre Michael Kaufmann, code and docker image released under MIT license. See LICENSE.TXT
-
+Code and documentation written by Andre Michael Kaufmann
+Free for use for any purposes according to MIT license, besides 
+having to include any copyright notice, where not expressed otherwise,
+like in used packages using different licenses.
 
 
 :leveloffset: +2
