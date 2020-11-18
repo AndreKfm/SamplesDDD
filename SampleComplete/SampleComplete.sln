@@ -9,19 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Boundaries", "Boundaries", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleComplete", "SampleComplete", "{5B591AA1-0029-4E6D-894A-61B69027176E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.MainExe", "..\SampleComplete.Main.Exe\SampleComplete.MainExe.csproj", "{D8221F31-7E0B-435D-9365-49E3679E4027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.MainExe", "SampleComplete.Main.Exe\SampleComplete.MainExe.csproj", "{D8221F31-7E0B-435D-9365-49E3679E4027}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{EEF284AE-CD84-424A-A06F-595721CA8C96}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.Domain", "SampleComplete\Domain\SampleComplete.Domain.csproj", "{BE8172F2-124A-4E70-A131-7A5FA9FADC5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.Domain", "Boundaries\SampleComplete\Domain\SampleComplete.Domain.csproj", "{BE8172F2-124A-4E70-A131-7A5FA9FADC5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8CCA908B-AFD4-41C5-8CB7-F40760A3DBC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.Infrastructure", "SampleComplete\Infrastructure\SampleComplete.Infrastructure.csproj", "{09DF2D94-B283-4385-B67B-D6EEFABFD94C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.Infrastructure", "Boundaries\SampleComplete\Infrastructure\SampleComplete.Infrastructure.csproj", "{09DF2D94-B283-4385-B67B-D6EEFABFD94C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{82579458-24F0-47DE-8085-6FAA8A487B7B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.Api", "SampleComplete\Api\SampleComplete.Api.csproj", "{024B10B6-DB04-46DE-9959-EFBF97DD8412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleComplete.Api", "Boundaries\SampleComplete\Api\SampleComplete.Api.csproj", "{024B10B6-DB04-46DE-9959-EFBF97DD8412}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
